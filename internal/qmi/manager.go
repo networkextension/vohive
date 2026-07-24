@@ -14,6 +14,7 @@ import (
 	"github.com/iniwex5/vohive/internal/apduarbiter"
 	"github.com/iniwex5/vohive/internal/config"
 	"github.com/iniwex5/vohive/internal/netprobe"
+	"github.com/iniwex5/vohive/internal/sockbind"
 	"github.com/iniwex5/vohive/pkg/logger"
 
 	qmimanager "github.com/iniwex5/quectel-qmi-go/pkg/manager"
@@ -1093,7 +1094,7 @@ func (m *Manager) boundDialer(timeout time.Duration) *net.Dialer {
 	dialer.Control = func(network, address string, c syscall.RawConn) error {
 		var sockErr error
 		if err := c.Control(func(fd uintptr) {
-			sockErr = syscall.SetsockoptString(int(fd), syscall.SOL_SOCKET, syscall.SO_BINDTODEVICE, m.cfg.Interface)
+			sockErr = sockbind.BindToDevice(fd, m.cfg.Interface)
 		}); err != nil {
 			return err
 		}

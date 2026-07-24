@@ -219,6 +219,10 @@ func (m *Manager) WaitReady(timeout time.Duration) bool {
 
 // forceReleasePort 检查端口是否被占用，如果是则杀掉占用者
 func (m *Manager) forceReleasePort(portPath string) {
+	// 非 Linux 平台禁用：端口可能是 PTY 桥，杀持有者会连桥打死。
+	if !forceReleaseSupported {
+		return
+	}
 	// 设备文件不存在时 fuser 可能返回内核线程 PID，直接跳过避免误杀。
 	if _, err := os.Stat(portPath); err != nil {
 		return

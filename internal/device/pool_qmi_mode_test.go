@@ -12,8 +12,8 @@ import (
 	"github.com/iniwex5/vohive/internal/config"
 	"github.com/iniwex5/vohive/internal/modem"
 	"github.com/iniwex5/vohive/internal/vowifihost"
-	"github.com/iniwex5/vowifi-go/runtimehost"
-	"github.com/iniwex5/vowifi-go/runtimehost/identity"
+	"github.com/boa-z/vowifi-go/runtimehost"
+	"github.com/boa-z/vowifi-go/runtimehost/identity"
 )
 
 type workerStatusBackendStub struct {

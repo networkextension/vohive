@@ -22,7 +22,7 @@ import (
 	qmicore "github.com/iniwex5/vohive/internal/qmi"
 	"github.com/iniwex5/vohive/internal/vowifihost"
 	"github.com/iniwex5/vohive/pkg/logger"
-	"github.com/iniwex5/vowifi-go/runtimehost"
+	"github.com/boa-z/vowifi-go/runtimehost"
 )
 
 type esimSwitchRestoreBackendStub struct {

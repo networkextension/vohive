@@ -21,8 +21,8 @@ import (
 	proxyserver "github.com/iniwex5/vohive/internal/proxy/server"
 	"github.com/iniwex5/vohive/internal/proxy/traffic"
 	"github.com/iniwex5/vohive/internal/upstreamproxy"
-	"github.com/iniwex5/vowifi-go/runtimehost/carrier"
-	"github.com/iniwex5/vowifi-go/runtimehost/voicehost"
+	"github.com/boa-z/vowifi-go/runtimehost/carrier"
+	"github.com/boa-z/vowifi-go/runtimehost/voicehost"
 
 	"github.com/iniwex5/vohive/internal/web"
 	"github.com/iniwex5/vohive/pkg/logger"

@@ -8,7 +8,7 @@ import (
 
 	"github.com/iniwex5/vohive/internal/backend"
 	"github.com/iniwex5/vohive/pkg/mbim"
-	swusim "github.com/iniwex5/vowifi-go/engine/sim"
+	swusim "github.com/boa-z/vowifi-go/engine/sim"
 )
 
 type factoryWorkerStub struct {
