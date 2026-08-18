@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/iniwex5/vohive/internal/vowifihost"
-	"github.com/iniwex5/vowifi-go/runtimehost"
+	"github.com/boa-z/vowifi-go/runtimehost"
 )
 
 func (p *Pool) voWiFiRuntimeStore() vowifihost.RuntimeStore {

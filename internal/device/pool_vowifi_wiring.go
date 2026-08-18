@@ -1,7 +1,7 @@
 package device
 
 import (
-	"github.com/iniwex5/vowifi-go/runtimehost/voicehost"
+	"github.com/boa-z/vowifi-go/runtimehost/voicehost"
 )
 
 // SetVoiceGateway 注入 VoWiFi 语音网关，用于优先走 IMS 外呼/挂断路径。

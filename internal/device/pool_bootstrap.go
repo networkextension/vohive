@@ -213,6 +213,10 @@ func (p *Pool) AddWorkerFromConfig(devCfg config.DeviceConfig) (*Worker, error) 
 	attempt := p.beginRebuildAttemptLocked(devCfg.ID)
 	p.mu.Unlock()
 
+	// 无内核串口枚举的平台（macOS）：允许用 VOHIVE_AT_PORT[_<ID>] 硬指定 AT 口，
+	// 跳过依赖 Linux /sys / ttyUSB 扫描的发现流程。已解析时不覆盖。
+	devCfg = applyATPortOverride(devCfg)
+
 	// 启动看门狗：如果本次启动流程因内部某次探测卡死（如 vendored QMI 库未正确
 	// 响应 context 取消）而长期不返回，强制释放 rebuilding 标记，避免设备槽位
 	// 永久无法重试或删除。正常路径下下面的 defer 会在返回前 close(watchdogStop)
